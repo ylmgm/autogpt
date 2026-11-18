@@ -1,0 +1,4 @@
+requests>=2.32.0
+PyJWT[crypto]>=2.10.0
+keyring>=25.0.0
+

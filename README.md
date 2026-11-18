@@ -5,14 +5,13 @@ A minimal Python desktop app that signs a user in with ChatGPT and opens a chat 
 ## Run on Windows
 
 ```powershell
-cd outputs/autogpt
 py -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python main.py
 ```
 
-The app opens the system browser, receives the callback on `http://localhost:1455/auth/callback`, verifies the ID token signature, issuer, audience, and expiration, then stores verified identity claims locally. Access and refresh tokens are kept in the operating system credential store and refreshed automatically when needed.
+The app opens the system browser, receives the callback on `http://localhost:1455/auth/callback`, verifies the ID token signature, issuer, audience, and expiration, then stores verified identity claims locally. Access and refresh tokens are encrypted with Windows DPAPI on Windows or stored in the OS credential store on macOS/Linux, and refreshed automatically when needed.
 
 The client ID is public and is embedded in the app, matching DBeaver's implementation. It is not an API key or a secret.
 
